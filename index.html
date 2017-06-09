@@ -1,0 +1,39 @@
+<!doctype html>
+<script src="code/chapter/15.js"></script>
+<script src="code/game_levels.js"></script>
+<script src="code/chapter/16.js"></script>
+
+<head>
+  <meta charset="UTF-8">
+  <title>马里奥</title>
+</head>
+<script>
+    window.onload=function(){      
+      getMyTime1();  
+    }
+    function p(n){
+      return n<10?'0'+n:n;
+    }
+    function getMyTime1(){
+      var myDate=new Date();
+      var year=myDate.getFullYear();
+      var month=myDate.getMonth()+1;
+      var day=myDate.getDate();
+      var week=myDate.getDay();
+      var array=['星期日','星期一','星期二','星期三','星期四','星期五','星期六',];
+      var hour=myDate.getHours();
+      var minute=myDate.getMinutes();
+      var second=myDate.getSeconds();
+      document.getElementById('time1').innerHTML=year+'年'+month+'月'+day+'日'+' '+array[week]+' '+p(hour)+':'+p(minute)+':'+p(second);
+      setTimeout('getMyTime1()',500);
+    }
+  </script>
+  
+<body>
+<div class="text">
+    <p>当前时间：<span id="time1"></span></p> 
+  </div>
+  <script>
+    runGame(GAME_LEVELS, CanvasDisplay);
+  </script>
+</body>
